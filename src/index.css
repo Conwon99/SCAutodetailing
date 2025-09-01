@@ -26,7 +26,7 @@ All colors MUST be HSL.
     
     /* Semantic tokens */
     --background: 0 0% 0%;              /* #000000 - Black background */
-    --foreground: 0 0% 100%;
+    --foreground: 0 0% 100%;            /* #FFFFFF - White text */
 
     --card: 0 0% 10%;                   /* #1a1a1a - Dark gray for cards */
     --card-foreground: 0 0% 100%;

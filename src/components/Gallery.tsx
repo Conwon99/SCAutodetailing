@@ -6,40 +6,22 @@ const Gallery = () => {
 
   const galleryImages = [
     {
-      src: "/api/placeholder/400/300",
-      alt: "Beautiful garden transformation in Troon - before and after landscaping",
-      title: "Garden Transformation",
-      location: "Troon"
+      src: "/car1.jpg",
+      alt: "Professional car detailing service - before and after transformation",
+      title: "Car Detailing",
+      location: "Ayrshire"
     },
     {
-      src: "/api/placeholder/400/300", 
-      alt: "Professional tree pruning services in Ayrshire",
-      title: "Tree Pruning",
-      location: "Ayr"
+      src: "/car2.jpg", 
+      alt: "Mobile car valeting service - showroom quality results",
+      title: "Car Valeting",
+      location: "Ayrshire"
     },
     {
-      src: "/api/placeholder/400/300",
-      alt: "Hedge trimming and garden maintenance in Prestwick",
-      title: "Hedge Trimming", 
-      location: "Prestwick"
-    },
-    {
-      src: "/api/placeholder/400/300",
-      alt: "Lawn care and grass cutting services",
-      title: "Lawn Care",
-      location: "Troon"
-    },
-    {
-      src: "/api/placeholder/400/300",
-      alt: "Garden clearance and waste removal services",
-      title: "Garden Clearance",
-      location: "Ayr"
-    },
-    {
-      src: "/api/placeholder/400/300",
-      alt: "Professional fencing installation in Ayrshire",
-      title: "Fencing Installation",
-      location: "Prestwick"
+      src: "/car3.jpg",
+      alt: "Professional mobile detailing service - exceptional finish",
+      title: "Mobile Service",
+      location: "Ayrshire"
     }
   ];
 
@@ -71,7 +53,7 @@ const Gallery = () => {
             Our <span className="text-primary">Work</span> Gallery
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Take a look at some of our recent projects across Troon, Ayr, and Prestwick
+            Take a look at some of our professional car detailing and valeting work across Ayrshire
           </p>
         </div>
 

@@ -11,37 +11,37 @@ const AboutUs = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <div className="flex items-center gap-2 text-primary">
-                <Leaf className="w-6 h-6" />
+                <Award className="w-6 h-6" />
                 <span className="font-semibold text-sm tracking-wide uppercase">
-                  About SC Auto Detailing
+                  Why Choose SC Auto Detailing
                 </span>
               </div>
               
               <h2 className="font-display font-bold text-4xl lg:text-5xl text-foreground leading-tight">
-                Professional{" "}
-                <span className="text-primary">Mobile Detailing</span>{" "}
-                Service Across Ayrshire
+                Experience{" "}
+                <span className="text-primary">Professional Excellence</span>{" "}
+                in Car Care
               </h2>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                SC Auto Detailing is a professional mobile detailing & valeting service proudly serving 
-                Ayrshire, Scotland. We bring everything with us — no water or electricity needed — 
-                so you get a showroom-fresh finish at your home or workplace.
+                Choose SC Auto Detailing for unmatched quality and convenience. Our mobile service brings 
+                professional detailing expertise directly to your doorstep, ensuring your vehicle receives 
+                the care it deserves without disrupting your busy schedule.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The services we offer include:
+                What sets us apart:
               </p>
               
               <ul className="text-lg text-muted-foreground font-medium space-y-2">
-                <li>• PAINT DECONTAMINATION</li>
-                <li>• CERAMIC COATINGS</li>
-                <li>• PAINT CORRECTION</li>
-                <li>• STEAM CLEANING</li>
-                <li>• FULLY MOBILE</li>
-                <li>• FULL VALETS/MINI VALETS</li>
-                <li>• DEEP CLEANS</li>
-                <li>• MAINTENANCE WASHES</li>
+                <li>• FULLY MOBILE SERVICE - We come to you</li>
+                <li>• PROFESSIONAL EQUIPMENT - No water or electricity needed</li>
+                <li>• SHOWROOM QUALITY RESULTS - Every time</li>
+                <li>• ECO-FRIENDLY PRODUCTS - Safe for your vehicle and environment</li>
+                <li>• EXPERIENCED TECHNICIANS - Trained in latest techniques</li>
+                <li>• COMPETITIVE PRICING - Quality service at fair rates</li>
+                <li>• FLEXIBLE SCHEDULING - Work around your availability</li>
+                <li>• SATISFACTION GUARANTEED - 100% recommended by customers</li>
               </ul>
             </div>
 
@@ -52,8 +52,8 @@ const AboutUs = () => {
                   <Award className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Mobile Service</h3>
-                  <p className="text-sm text-muted-foreground">We come to you anywhere in Ayrshire</p>
+                  <h3 className="font-semibold text-foreground">Professional Quality</h3>
+                  <p className="text-sm text-muted-foreground">Showroom-fresh results every time</p>
                 </div>
               </div>
               
@@ -62,8 +62,8 @@ const AboutUs = () => {
                   <Users className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Professional Quality</h3>
-                  <p className="text-sm text-muted-foreground">Showroom-fresh results every time</p>
+                  <h3 className="font-semibold text-foreground">Mobile Convenience</h3>
+                  <p className="text-sm text-muted-foreground">We come to you anywhere in Ayrshire</p>
                 </div>
               </div>
               
@@ -72,8 +72,8 @@ const AboutUs = () => {
                   <Clock className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Convenient</h3>
-                  <p className="text-sm text-muted-foreground">No water or electricity needed</p>
+                  <h3 className="font-semibold text-foreground">Time Saving</h3>
+                  <p className="text-sm text-muted-foreground">No travel time or waiting around</p>
                 </div>
               </div>
               
@@ -102,17 +102,11 @@ const AboutUs = () => {
           {/* Before/After Slider */}
           <div className="relative">
             <BeforeAfterSlider
-              beforeImage="/car2.png"
-              afterImage="/car.png"
+              beforeImage="/before.jpg"
+              afterImage="/after.jpg"
               beforeAlt="Car before detailing service"
               afterAlt="Car after professional detailing service"
             />
-            
-            {/* Experience Badge */}
-            <div className="absolute top-6 right-6 bg-primary text-primary-foreground rounded-xl px-4 py-3 shadow-lg z-10">
-              <div className="text-2xl font-bold">Mobile</div>
-              <div className="text-sm">Service</div>
-            </div>
           </div>
         </div>
       </div>

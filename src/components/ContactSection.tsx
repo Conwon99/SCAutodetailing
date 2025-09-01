@@ -18,10 +18,13 @@ const ContactSection = () => {
   const { toast } = useToast();
 
   const serviceOptions = [
-    'Gardening',
-    'Tree Work', 
-    'Fencing/Decking',
-    'Garden Clear-outs'
+    'Paint Decontamination',
+    'Ceramic Coatings', 
+    'Paint Correction',
+    'Steam Cleaning',
+    'Full Valets/Mini Valets',
+    'Deep Cleans',
+    'Maintenance Washes'
   ];
 
   const handleServiceToggle = (service: string) => {
@@ -45,7 +48,7 @@ Postcode: ${formData.postcode}
 Services Needed: ${formData.services.join(', ')}
 Message: ${formData.message}`;
     
-    const mailtoLink = `mailto:mapletreeayshire@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:scautodetailinguk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
     
     toast({
@@ -55,21 +58,21 @@ Message: ${formData.message}`;
   };
 
   const handleCallClick = () => {
-    window.location.href = "tel:+447853224528";
+    window.location.href = "tel:07961817087";
   };
 
   const handleWhatsAppClick = () => {
-    window.location.href = "https://wa.me/447853224528?text=Hi%20Gordon,%20I'd%20like%20a%20free%20quote%20for%20my%20garden";
+    window.location.href = "https://wa.me/447961817087?text=Hi%20SC%20Auto%20Detailing,%20I'd%20like%20a%20free%20quote%20for%20my%20car";
   };
 
   return (
     <section id="contact-form" className="py-20 px-4 bg-[hsl(var(--muted))]">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-[hsl(var(--asphalt-grey))] mb-6">
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Get Your Free Quote
           </h2>
-          <p className="text-xl text-[hsl(var(--asphalt-grey))] max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Call or WhatsApp now, or request a free quote—attach photos for a faster estimate.
           </p>
         </div>
@@ -78,7 +81,7 @@ Message: ${formData.message}`;
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-display text-2xl font-bold text-[hsl(var(--asphalt-grey))] mb-6">
+              <h3 className="font-display text-2xl font-bold text-foreground mb-6">
                 Get in Touch Right Now
               </h3>
               
@@ -89,14 +92,14 @@ Message: ${formData.message}`;
                 >
                   <Phone className="w-6 h-6" />
                   <div className="text-left">
-                    <div className="font-semibold text-lg">Call Gordon</div>
-                    <div className="text-sm opacity-90">+44 7853 224528</div>
+                    <div className="font-semibold text-lg">Call SC Auto Detailing</div>
+                    <div className="text-sm opacity-90">07961 817087</div>
                   </div>
                 </Button>
 
                 <Button 
                   onClick={handleWhatsAppClick}
-                  className="w-full justify-start gap-4 p-6 h-auto bg-[hsl(var(--sky-blue))] hover:bg-[hsl(var(--sky-blue))] hover:opacity-90 text-[hsl(var(--asphalt-grey))] rounded-2xl"
+                  className="w-full justify-start gap-4 p-6 h-auto bg-[hsl(var(--sky-blue))] hover:bg-[hsl(var(--sky-blue))] hover:opacity-90 text-foreground rounded-2xl"
                 >
                   <MessageCircle className="w-6 h-6" />
                   <div className="text-left">
@@ -108,28 +111,28 @@ Message: ${formData.message}`;
             </div>
 
             {/* Business Info */}
-            <div className="space-y-6 pt-8 border-t">
+            <div className="space-y-6 pt-8 border-t border-border">
               <div className="flex items-start gap-4">
                 <Mail className="w-6 h-6 text-[hsl(var(--grass-green))] mt-1" />
                 <div>
-                  <div className="font-semibold text-[hsl(var(--asphalt-grey))]">Email</div>
-                  <div className="text-[hsl(var(--asphalt-grey))] opacity-80">mapletreeayshire@gmail.com</div>
+                  <div className="font-semibold text-foreground">Email</div>
+                  <div className="text-muted-foreground">scautodetailinguk@gmail.com</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-[hsl(var(--grass-green))] mt-1" />
                 <div>
-                  <div className="font-semibold text-[hsl(var(--asphalt-grey))]">Service Area</div>
-                  <div className="text-[hsl(var(--asphalt-grey))] opacity-80">Troon and across Ayrshire</div>
+                  <div className="font-semibold text-foreground">Service Area</div>
+                  <div className="text-muted-foreground">Ayrshire</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <Clock className="w-6 h-6 text-[hsl(var(--grass-green))] mt-1" />
                 <div>
-                  <div className="font-semibold text-[hsl(var(--asphalt-grey))]">Response Time</div>
-                  <div className="text-[hsl(var(--asphalt-grey))] opacity-80">Usually within a week for quotes</div>
+                  <div className="font-semibold text-foreground">Response Time</div>
+                  <div className="text-muted-foreground">Usually within a week for quotes</div>
                 </div>
               </div>
             </div>
@@ -140,7 +143,7 @@ Message: ${formData.message}`;
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="name" className="text-[hsl(var(--asphalt-grey))] font-semibold">Name</Label>
+                  <Label htmlFor="name" className="text-foreground font-semibold">Name</Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -150,7 +153,7 @@ Message: ${formData.message}`;
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="text-[hsl(var(--asphalt-grey))] font-semibold">Phone</Label>
+                  <Label htmlFor="phone" className="text-foreground font-semibold">Phone</Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -164,7 +167,7 @@ Message: ${formData.message}`;
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="email" className="text-[hsl(var(--asphalt-grey))] font-semibold">Email</Label>
+                  <Label htmlFor="email" className="text-foreground font-semibold">Email</Label>
                   <Input
                     id="email"
                     type="email"
@@ -175,7 +178,7 @@ Message: ${formData.message}`;
                   />
                 </div>
                 <div>
-                  <Label htmlFor="postcode" className="text-[hsl(var(--asphalt-grey))] font-semibold">Postcode</Label>
+                  <Label htmlFor="postcode" className="text-foreground font-semibold">Postcode</Label>
                   <Input
                     id="postcode"
                     value={formData.postcode}
@@ -187,7 +190,7 @@ Message: ${formData.message}`;
               </div>
 
               <div>
-                <Label className="text-[hsl(var(--asphalt-grey))] font-semibold">Services Needed</Label>
+                <Label className="text-foreground font-semibold">Services Needed</Label>
                 <div className="grid grid-cols-2 gap-3 mt-3">
                   {serviceOptions.map(service => (
                     <Button
@@ -198,7 +201,7 @@ Message: ${formData.message}`;
                       className={`rounded-xl ${
                         formData.services.includes(service)
                           ? 'bg-[hsl(var(--grass-green))] text-white'
-                          : 'border-2 text-[hsl(var(--asphalt-grey))]'
+                          : 'border-2 text-foreground'
                       }`}
                     >
                       {service}
@@ -208,12 +211,12 @@ Message: ${formData.message}`;
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-[hsl(var(--asphalt-grey))] font-semibold">Message</Label>
+                <Label htmlFor="message" className="text-foreground font-semibold">Message</Label>
                 <Textarea
                   id="message"
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  placeholder="Tell us about your garden needs..."
+                  placeholder="Tell us about your car needs..."
                   className="mt-2 rounded-xl border-2 min-h-[100px]"
                 />
               </div>
