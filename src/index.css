@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Gebaco Font */
+/* THICCCBOI Font */
 @font-face {
-  font-family: 'Gebaco';
-  src: url('/Gebaco.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'THICCCBOI';
+  src: url('/TTF/THICCCBOI-Bold.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -16,11 +16,30 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  /* Global Website Background */
+  body {
+    background-image: url('/Black%20Gradient%20Chrome%20Good%20Vibes%20Desktop%20Wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .font-display {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Override for hero section specifically */
+  .hero-title {
+    font-family: 'THICCCBOI', 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+  }
+  
   :root {
     /* Core brand colors */
     --sunshine-yellow: 51 100% 50%;     /* #FEEB00 */
     --sky-blue: 197 73% 73%;            /* #87CEEB */
-    --grass-green: 210 32% 32%;         /* #395b6d */
+    --grass-green: 210 100% 60%;        /* #4DA6FF - Light blue for better contrast */
     --donut-pink: 330 100% 71%;         /* #FF69B4 */
     --asphalt-grey: 0 0% 18%;           /* #2F2F2F */
     
@@ -139,6 +158,10 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html, body {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
   }
@@ -176,4 +199,5 @@ All colors MUST be HSL.
   .gradient-cta {
     background: var(--gradient-cta);
   }
+
 }

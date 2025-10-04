@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
-import AboutUs from "@/components/AboutUs";
+import Process from "@/components/Process";
 import ServicesGrid from "@/components/ServicesGrid";
 import Reviews from "@/components/Reviews";
 import Gallery from "@/components/Gallery";
@@ -10,14 +10,14 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       <Navigation />
       <Hero />
       <TrustBar />
+      <Process />
       <ServicesGrid />
       <Gallery />
       <Reviews />
-      <AboutUs />
       <ContactSection />
       <Footer />
     </main>

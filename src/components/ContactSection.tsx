@@ -12,29 +12,10 @@ const ContactSection = () => {
     phone: '',
     email: '',
     postcode: '',
-    services: [] as string[],
     message: ''
   });
   const { toast } = useToast();
 
-  const serviceOptions = [
-    'Paint Decontamination',
-    'Ceramic Coatings', 
-    'Paint Correction',
-    'Steam Cleaning',
-    'Full Valets/Mini Valets',
-    'Deep Cleans',
-    'Maintenance Washes'
-  ];
-
-  const handleServiceToggle = (service: string) => {
-    setFormData(prev => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter(s => s !== service)
-        : [...prev.services, service]
-    }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +26,6 @@ const ContactSection = () => {
 Phone: ${formData.phone}
 Email: ${formData.email}
 Postcode: ${formData.postcode}
-Services Needed: ${formData.services.join(', ')}
 Message: ${formData.message}`;
     
     const mailtoLink = `mailto:scautodetailinguk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -69,7 +49,7 @@ Message: ${formData.message}`;
     <section id="contact-form" className="py-20 px-4 bg-[hsl(var(--muted))]">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Get Your Free Quote
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -189,26 +169,6 @@ Message: ${formData.message}`;
                 </div>
               </div>
 
-              <div>
-                <Label className="text-foreground font-semibold">Services Needed</Label>
-                <div className="grid grid-cols-2 gap-3 mt-3">
-                  {serviceOptions.map(service => (
-                    <Button
-                      key={service}
-                      type="button"
-                      variant={formData.services.includes(service) ? "default" : "outline"}
-                      onClick={() => handleServiceToggle(service)}
-                      className={`rounded-xl ${
-                        formData.services.includes(service)
-                          ? 'bg-[hsl(var(--grass-green))] text-white'
-                          : 'border-2 text-foreground'
-                      }`}
-                    >
-                      {service}
-                    </Button>
-                  ))}
-                </div>
-              </div>
 
               <div>
                 <Label htmlFor="message" className="text-foreground font-semibold">Message</Label>

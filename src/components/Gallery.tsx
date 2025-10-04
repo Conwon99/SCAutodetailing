@@ -1,26 +1,69 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
     {
-      src: "/car1.jpg",
-      alt: "Professional car detailing service - before and after transformation",
-      title: "Car Detailing",
+      src: "/Gallery/553595398_1121514456777499_158019936067107389_n.jpg",
+      alt: "Professional car detailing service - exceptional paint correction results",
+      title: "Paint Correction",
       location: "Ayrshire"
     },
     {
-      src: "/car2.jpg", 
-      alt: "Mobile car valeting service - showroom quality results",
-      title: "Car Valeting",
+      src: "/Gallery/after.jpg",
+      alt: "Car after professional detailing service - pristine finish",
+      title: "After Service",
       location: "Ayrshire"
     },
     {
-      src: "/car3.jpg",
-      alt: "Professional mobile detailing service - exceptional finish",
-      title: "Mobile Service",
+      src: "/Gallery/Car gallery 2.jpg",
+      alt: "Professional mobile car detailing service - comprehensive cleaning",
+      title: "Complete Detailing",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/Car gallery 3..jpg",
+      alt: "Mobile car valeting service - exceptional transformation",
+      title: "Vehicle Transformation",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/Car Gallery 4..jpg",
+      alt: "Professional paint correction and ceramic coating service",
+      title: "Paint Protection",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/Car Gallery 6..jpg",
+      alt: "Mobile detailing service - showroom quality results",
+      title: "Professional Service",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/Car gallery one..jpg",
+      alt: "Comprehensive car detailing and valeting service",
+      title: "Full Service",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/car2.jpg",
+      alt: "Mobile car valeting service - exceptional finish",
+      title: "Mobile Valeting",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/car3.jpg",
+      alt: "Professional mobile detailing service - showroom quality results",
+      title: "Premium Detailing",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/Clark Gallery 5..jpg",
+      alt: "Professional car detailing service - paint correction and protection",
+      title: "Paint Restoration",
       location: "Ayrshire"
     }
   ];
@@ -49,8 +92,13 @@ const Gallery = () => {
     <section id="gallery" className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-4xl lg:text-5xl text-foreground mb-4">
-            Our <span className="text-primary">Work</span> Gallery
+          <h2 className="font-bold text-4xl lg:text-5xl text-foreground mb-4">
+            Our <span style={{
+              background: 'linear-gradient(135deg, #c0c0c0 0%, #808080 25%, #a8a8a8 50%, #606060 75%, #404040 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>Work</span> Gallery
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Take a look at some of our professional car detailing and valeting work across Ayrshire
@@ -71,13 +119,20 @@ const Gallery = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="font-semibold text-lg">{image.title}</h3>
-                  <p className="text-sm text-white/80">{image.location}</p>
-                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View More Button */}
+        <div className="flex justify-center mt-12">
+          <Button 
+            onClick={() => window.location.href = "https://www.facebook.com/profile.php?id=61573170152594"}
+            variant="outline"
+            className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 text-center"
+          >
+            View more on Facebook
+          </Button>
         </div>
 
         {/* Lightbox */}

@@ -74,14 +74,27 @@ const BeforeAfterSlider = ({
     };
   }, [isDragging]);
 
+  // Auto slideshow functionality - toggle between before and after every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSliderPosition((prevPosition) => {
+        // Toggle between 0% (showing before) and 100% (showing after)
+        return prevPosition === 0 ? 100 : 0;
+      });
+    }, 1000); // Change every 1 second
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${className} overflow-hidden`}>
       <div
         ref={containerRef}
-        className="relative w-full h-[350px] lg:h-[450px] overflow-hidden shadow-2xl"
+        className="relative w-full h-[350px] lg:h-[450px] overflow-hidden shadow-2xl mx-auto"
         style={{
           transform: 'skew(-15deg)',
-          borderRadius: '0'
+          borderRadius: '0',
+          maxWidth: '100%'
         }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}

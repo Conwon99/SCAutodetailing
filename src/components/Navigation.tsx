@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleCallClick = () => {
     window.location.href = "https://www.facebook.com/profile.php?id=61573170152594";
@@ -14,6 +15,19 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        setIsScrolled(window.scrollY > heroBottom);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navItems = [
     { label: "Home", onClick: () => scrollToSection("hero") },
     { label: "Services", onClick: () => scrollToSection("services") },
@@ -23,7 +37,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-black backdrop-blur-sm border-b border-primary z-50">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-black/80 backdrop-blur-sm border-b border-primary/20' 
+        : 'bg-transparent'
+    }`}>
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
@@ -107,6 +125,20 @@ const Navigation = () => {
                 >
                   Message Us
                 </Button>
+              </div>
+              
+              {/* Cancellation Policy */}
+              <div className="px-4 pt-4 border-t border-primary-foreground/20">
+                <div className="text-xs text-primary-foreground/70 space-y-2">
+                  <div className="font-semibold text-primary-foreground/90 mb-2">
+                    Cancellation Policy
+                  </div>
+                  <div className="space-y-1">
+                    <div>• 24+ hours' notice required</div>
+                    <div>• Less than 24h = 50% fee</div>
+                    <div>• No-shows = 100% fee</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

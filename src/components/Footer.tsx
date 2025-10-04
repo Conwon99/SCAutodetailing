@@ -37,12 +37,13 @@ const Footer = () => {
               Our Services
             </h4>
             <ul className="space-y-3 text-gray-300">
-              <li>• Full Valet</li>
-              <li>• Standard Valet</li>
-              <li>• Mini Valet</li>
-              <li>• Mobile Service</li>
-              <li>• Interior Detailing</li>
-              <li>• Exterior Detailing</li>
+              <li>• Paint Decontamination</li>
+              <li>• Ceramic Coatings</li>
+              <li>• Paint Correction</li>
+              <li>• Decal Removal</li>
+              <li>• Full Valets/Mini Valets</li>
+              <li>• Deep Cleans</li>
+              <li>• Maintenance Washes</li>
             </ul>
           </div>
 
@@ -78,7 +79,7 @@ const Footer = () => {
               © {currentYear} SC Auto Detailing. All rights reserved.
             </div>
             <div className="text-gray-400 text-sm text-center">
-              Simpsons-inspired color palette & vibe; no copyrighted characters used.
+              Professional mobile car detailing & valeting across Ayrshire.
             </div>
           </div>
         </div>

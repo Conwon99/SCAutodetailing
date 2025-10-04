@@ -3,25 +3,25 @@ import { Star } from "lucide-react";
 const Reviews = () => {
   const reviews = [
     {
-      name: "Sarah Mitchell",
-      location: "Troon",
+      name: "Dean Cursley",
+      location: "Ayrshire",
       rating: 5,
-      text: "Gordon transformed our overgrown garden into a beautiful space. His attention to detail and professionalism is outstanding. Highly recommend!",
-      service: "Garden Makeover"
+      text: "They did an unreal job on my Kia Niro — and trust me, it was a challenge… between banana sludge in on the seat and my wife & daughter's hair everywhere, the poor car didn't stand a chance 😂🍌💇‍♀️",
+      service: "Deep Clean & Valet"
     },
     {
-      name: "James Robertson",
-      location: "Prestwick", 
+      name: "Catherine Graham",
+      location: "Ayrshire", 
       rating: 5,
-      text: "Excellent tree work services. Gordon safely removed two large trees and cleaned up perfectly. Will definitely use again.",
-      service: "Tree Removal"
+      text: "I would highly recommend scautodetailing! I had my first valet done last month and my car was shining and smelt so good. Scott takes great pride in his work taking his time to ensure the best sparkle possible. He even picked up on a few things I hadn't noticed and sorted them out too. Really reasonable price for the time it takes for such a deep clean! I'm now on the maintenance list for a regular a lot. 🙌🏻 x",
+      service: "Full Valet & Maintenance"
     },
     {
-      name: "Margaret Wilson",
-      location: "Ayr",
+      name: "Julie Watson",
+      location: "Ayrshire",
       rating: 5,
-      text: "Regular garden maintenance for over a year now. Always reliable, professional, and reasonably priced. Garden looks amazing year-round.",
-      service: "Garden Maintenance"
+      text: "Great job from Scott at Auto Detailing, fantastic attention to detail on both cars, one being a 32 year old Figaro, really brought it back to life! He was in touch to do the job very quickly after messaging him, and would highly recommend.",
+      service: "Paint Restoration"
     }
   ];
 
@@ -30,7 +30,7 @@ const Reviews = () => {
       <Star
         key={i}
         className={`w-5 h-5 ${
-          i < rating ? "text-accent fill-current" : "text-muted-foreground/30"
+          i < rating ? "text-blue-500 fill-blue-500" : "text-gray-300"
         }`}
       />
     ));
@@ -40,11 +40,16 @@ const Reviews = () => {
     <section id="reviews" className="py-20 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-4xl lg:text-5xl text-foreground mb-4">
-            What Our <span className="text-primary">Customers</span> Say
+          <h2 className="font-bold text-4xl lg:text-5xl text-foreground mb-4">
+            What Our <span style={{
+              background: 'linear-gradient(135deg, #c0c0c0 0%, #808080 25%, #a8a8a8 50%, #606060 75%, #404040 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>Customers</span> Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it - hear from our satisfied customers across Troon & Ayrshire
+            Don't just take our word for it - hear from our satisfied customers across Ayrshire
           </p>
         </div>
 

@@ -22,9 +22,9 @@ const ServicesGrid = () => {
       color: "grass-green"
     },
     {
-      title: "Steam Cleaning",
-      description: "Deep sanitization using high-temperature steam technology",
-      icon: Car,
+      title: "Decal Removal",
+      description: "Professional removal of stickers, decals, and adhesive residues",
+      icon: Shield,
       color: "grass-green"
     },
     {
@@ -48,14 +48,14 @@ const ServicesGrid = () => {
   ];
 
   const handleQuoteClick = () => {
-    window.location.href = "https://www.facebook.com/profile.php?id=61573170152594";
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section id="services" className="py-20 px-4 bg-gradient-to-b from-background to-[hsl(var(--muted))]">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -89,7 +89,7 @@ const ServicesGrid = () => {
                   onClick={handleQuoteClick}
                   className={`w-full bg-[hsl(var(--${service.color}))] hover:bg-[hsl(var(--${service.color}))] hover:opacity-90 text-primary-foreground font-semibold rounded-full group/button mt-auto`}
                 >
-                  Message on Facebook
+                  Get Free Quote
                   <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
                 </Button>
               </div>
