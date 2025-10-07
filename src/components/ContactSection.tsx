@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, MessageCircle, Mail, Clock, MapPin } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -14,34 +15,61 @@ const ContactSection = () => {
     postcode: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = "Free Quote Request from Website";
-    const body = `Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-Postcode: ${formData.postcode}
-Message: ${formData.message}`;
-    
-    const mailtoLink = `mailto:scautodetailinguk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Quote request ready!",
-      description: "Your email client will open with the request details. We'll respond within 24 hours.",
-    });
+    try {
+      setIsSubmitting(true);
+      trackEvent('form_submit', { location: 'ContactSection', form: 'quote' });
+      const response = await fetch("https://formspree.io/f/xyznpaog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          postcode: formData.postcode,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. We'll be in touch shortly.",
+        });
+        setFormData({ name: '', phone: '', email: '', postcode: '', message: '' });
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again, or contact us via phone or WhatsApp.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network error",
+        description: "Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCallClick = () => {
+    trackEvent('cta_click', { location: 'ContactSection', cta: 'call' });
     window.location.href = "tel:07961817087";
   };
 
   const handleWhatsAppClick = () => {
+    trackEvent('cta_click', { location: 'ContactSection', cta: 'whatsapp' });
     window.location.href = "https://wa.me/447961817087?text=Hi%20SC%20Auto%20Detailing,%20I'd%20like%20a%20free%20quote%20for%20my%20car";
   };
 
@@ -181,8 +209,8 @@ Message: ${formData.message}`;
                 />
               </div>
 
-              <Button type="submit" className="w-full btn-hero">
-                Send Quote Request ✨
+              <Button type="submit" className="w-full btn-hero" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending…' : 'Send Quote Request ✨'}
               </Button>
             </form>
           </div>

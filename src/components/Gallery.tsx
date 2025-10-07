@@ -7,9 +7,15 @@ const Gallery = () => {
 
   const galleryImages = [
     {
-      src: "/Gallery/553595398_1121514456777499_158019936067107389_n.jpg",
+      src: "/Gallery/553888188_1134887874808457_5288069144025439327_n.jpg",
       alt: "Professional car detailing service - exceptional paint correction results",
       title: "Paint Correction",
+      location: "Ayrshire"
+    },
+    {
+      src: "/Gallery/553925102_1233161851866729_1637886665257220047_n.jpg",
+      alt: "Mobile car valeting service - showroom quality transformation",
+      title: "Vehicle Transformation",
       location: "Ayrshire"
     },
     {
@@ -27,13 +33,7 @@ const Gallery = () => {
     {
       src: "/Gallery/Car gallery 3..jpg",
       alt: "Mobile car valeting service - exceptional transformation",
-      title: "Vehicle Transformation",
-      location: "Ayrshire"
-    },
-    {
-      src: "/Gallery/Car Gallery 4..jpg",
-      alt: "Professional paint correction and ceramic coating service",
-      title: "Paint Protection",
+      title: "Mobile Valeting",
       location: "Ayrshire"
     },
     {
@@ -43,27 +43,21 @@ const Gallery = () => {
       location: "Ayrshire"
     },
     {
+      src: "/Gallery/Car Gallery 7..jpg",
+      alt: "Professional car detailing service - exceptional results",
+      title: "Premium Detailing",
+      location: "Ayrshire"
+    },
+    {
       src: "/Gallery/Car gallery one..jpg",
       alt: "Comprehensive car detailing and valeting service",
       title: "Full Service",
       location: "Ayrshire"
     },
     {
-      src: "/Gallery/car2.jpg",
-      alt: "Mobile car valeting service - exceptional finish",
-      title: "Mobile Valeting",
-      location: "Ayrshire"
-    },
-    {
-      src: "/Gallery/car3.jpg",
-      alt: "Professional mobile detailing service - showroom quality results",
-      title: "Premium Detailing",
-      location: "Ayrshire"
-    },
-    {
       src: "/Gallery/Clark Gallery 5..jpg",
-      alt: "Professional car detailing service - paint correction and protection",
-      title: "Paint Restoration",
+      alt: "Professional car detailing service - comprehensive cleaning results",
+      title: "Deep Clean",
       location: "Ayrshire"
     }
   ];
@@ -165,10 +159,6 @@ const Gallery = () => {
                 alt={galleryImages[selectedImage].alt}
                 className="max-w-full max-h-full object-contain rounded-lg"
               />
-              <div className="text-center mt-4 text-white">
-                <h3 className="font-semibold text-xl">{galleryImages[selectedImage].title}</h3>
-                <p className="text-white/80">{galleryImages[selectedImage].location}</p>
-              </div>
             </div>
           </div>
         )}

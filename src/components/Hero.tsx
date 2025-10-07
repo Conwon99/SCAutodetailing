@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const WhatsAppIcon = () => (
   <svg width="60" height="60" viewBox="0 0 32 32" fill="currentColor">
@@ -26,10 +27,12 @@ const Hero = () => {
   ];
 
   const handleWhatsAppClick = () => {
+    trackEvent('cta_click', { location: 'Hero', cta: 'whatsapp' });
     window.location.href = "https://wa.me/447961817087?text=Hi%20SC%20Auto%20Detailing,%20I'd%20like%20a%20free%20quote%20for%20my%20car";
   };
 
   const handleFacebookClick = () => {
+    trackEvent('cta_click', { location: 'Hero', cta: 'facebook' });
     window.location.href = "https://www.facebook.com/profile.php?id=61573170152594";
   };
 
@@ -46,6 +49,7 @@ const Hero = () => {
   }, [slides.length]);
 
   const handleQuoteClick = () => {
+    trackEvent('cta_click', { location: 'Hero', cta: 'quote_scroll' });
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 

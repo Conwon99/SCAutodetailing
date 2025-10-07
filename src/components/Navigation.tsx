@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleCallClick = () => {
+    trackEvent('cta_click', { location: 'Navigation', cta: 'message_us' });
     window.location.href = "https://www.facebook.com/profile.php?id=61573170152594";
   };
 
@@ -58,7 +60,10 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={item.onClick}
+                onClick={() => {
+                  trackEvent('nav_click', { label: item.label });
+                  item.onClick();
+                }}
                 className="text-primary-foreground hover:text-primary-foreground/80 transition-colors duration-200 font-medium"
               >
                 {item.label}
@@ -104,7 +109,10 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={item.onClick}
+                  onClick={() => {
+                    trackEvent('nav_click', { label: item.label });
+                    item.onClick();
+                  }}
                   className="block w-full text-left px-4 py-2 text-primary-foreground hover:text-primary-foreground/80 hover:bg-primary-foreground/10 transition-colors duration-200"
                 >
                   {item.label}

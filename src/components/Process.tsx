@@ -1,5 +1,6 @@
 import { MessageCircle, FileText, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 const WhatsAppIcon = () => (
   <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
@@ -31,6 +32,7 @@ const Process = () => {
   ];
 
   const handleWhatsAppClick = () => {
+    trackEvent('cta_click', { location: 'Process', cta: 'whatsapp' });
     window.location.href = "https://wa.me/447961817087?text=Hi%20SC%20Auto%20Detailing,%20I'd%20like%20a%20free%20quote%20for%20my%20car";
   };
 
@@ -117,17 +119,17 @@ const Process = () => {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-foreground"><strong>Cancellations or reschedules require 24+ hours' notice.</strong></p>
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-foreground">With <strong>less than 24 hours' notice</strong> or <strong>arrivals 30+ minutes late</strong>, a <strong>50% fee</strong> applies.</p>
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-foreground"><strong>No-shows will be charged 100%</strong> of the service.</p>
                 </div>
               </div>

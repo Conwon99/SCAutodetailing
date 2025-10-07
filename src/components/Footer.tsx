@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-2xl font-bold text-[hsl(var(--sunshine-yellow))] mb-4">
+              <h3 className="font-display text-2xl font-bold text-blue-500 mb-4">
                 SC Auto Detailing
               </h3>
               <p className="text-gray-300 leading-relaxed">
@@ -33,7 +34,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-display text-xl font-bold text-[hsl(var(--sunshine-yellow))] mb-6">
+            <h4 className="font-display text-xl font-bold text-blue-500 mb-6">
               Our Services
             </h4>
             <ul className="space-y-3 text-gray-300">
@@ -49,7 +50,7 @@ const Footer = () => {
 
           {/* About SC Auto Detailing */}
           <div>
-            <h4 className="font-display text-xl font-bold text-[hsl(var(--sunshine-yellow))] mb-6">
+            <h4 className="font-display text-xl font-bold text-blue-500 mb-6">
               About SC Auto Detailing
             </h4>
             <p className="text-gray-300 leading-relaxed mb-6">
@@ -63,7 +64,8 @@ const Footer = () => {
                 href="https://www.facebook.com/profile.php?id=61573170152594" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[hsl(var(--sky-blue))] hover:text-[hsl(var(--sunshine-yellow))] transition-colors"
+                className="flex items-center gap-2 text-[hsl(var(--sky-blue))] hover:text-blue-500 transition-colors"
+                onClick={() => trackEvent('cta_click', { location: 'Footer', cta: 'facebook' })}
               >
                 <Facebook className="w-5 h-5" />
                 <span>Message us on Facebook</span>
