@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { trackEvent } from "@/lib/analytics";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   const handleCallClick = () => {
     trackEvent('cta_click', { location: 'Navigation', cta: 'message_us' });
@@ -13,25 +15,46 @@ const Navigation = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      // On homepage, scroll to section
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // On other pages, navigate to homepage and then scroll
+      window.location.href = `/#${sectionId}`;
+    }
     setIsMenuOpen(false);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.getElementById('hero');
-      if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        setIsScrolled(window.scrollY > heroBottom);
+      if (location.pathname === '/') {
+        // On homepage, check if scrolled past hero section
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+          const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+          setIsScrolled(window.scrollY > heroBottom);
+        }
+      } else {
+        // On other pages, show background after scrolling down a bit
+        setIsScrolled(window.scrollY > 100);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navItems = [
-    { label: "Home", onClick: () => scrollToSection("hero") },
+    { 
+      label: "Home", 
+      onClick: () => {
+        if (location.pathname === '/') {
+          scrollToSection("hero");
+        } else {
+          window.location.href = "/";
+        }
+      }
+    },
     { label: "Services", onClick: () => scrollToSection("services") },
     { label: "Gallery", onClick: () => scrollToSection("gallery") },
     { label: "Reviews", onClick: () => scrollToSection("reviews") },

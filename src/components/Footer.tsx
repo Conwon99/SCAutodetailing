@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 import { trackEvent } from "@/lib/analytics";
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-[hsl(var(--asphalt-grey))] text-white py-16 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-6">
             <div>
@@ -38,13 +39,28 @@ const Footer = () => {
               Our Services
             </h4>
             <ul className="space-y-3 text-gray-300">
-              <li>• Paint Decontamination</li>
-              <li>• Ceramic Coatings</li>
-              <li>• Paint Correction</li>
-              <li>• Decal Removal</li>
-              <li>• Full Valets/Mini Valets</li>
-              <li>• Deep Cleans</li>
-              <li>• Maintenance Washes</li>
+              <li><Link to="/paint-decontamination" className="hover:text-blue-400 transition-colors">Paint Decontamination</Link></li>
+              <li><Link to="/ceramic-coating" className="hover:text-blue-400 transition-colors">Ceramic Coatings</Link></li>
+              <li><Link to="/paint-correction" className="hover:text-blue-400 transition-colors">Paint Correction</Link></li>
+              <li><Link to="/decal-removal" className="hover:text-blue-400 transition-colors">Decal Removal</Link></li>
+              <li><Link to="/car-valeting" className="hover:text-blue-400 transition-colors">Full Valets/Mini Valets</Link></li>
+              <li><Link to="/deep-clean" className="hover:text-blue-400 transition-colors">Deep Cleans</Link></li>
+              <li><Link to="/maintenance-wash" className="hover:text-blue-400 transition-colors">Maintenance Washes</Link></li>
+            </ul>
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h4 className="font-display text-xl font-bold text-blue-500 mb-6">
+              Service Areas
+            </h4>
+            <ul className="space-y-3 text-gray-300">
+              <li><Link to="/kilmarnock" className="hover:text-blue-400 transition-colors">Kilmarnock</Link></li>
+              <li><Link to="/irvine" className="hover:text-blue-400 transition-colors">Irvine</Link></li>
+              <li><Link to="/troon" className="hover:text-blue-400 transition-colors">Troon</Link></li>
+              <li><Link to="/ayr" className="hover:text-blue-400 transition-colors">Ayr</Link></li>
+              <li><Link to="/prestwick" className="hover:text-blue-400 transition-colors">Prestwick</Link></li>
+              <li><span className="text-gray-400">All Ayrshire Areas</span></li>
             </ul>
           </div>
 

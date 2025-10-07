@@ -119,6 +119,7 @@ const Hero = () => {
                           src={slide.src}
                           alt={slide.alt}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                         
                         <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-semibold z-30 border border-blue-400/50">
@@ -242,6 +243,7 @@ const Hero = () => {
                         src={slide.src}
                         alt={slide.alt}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                       
                       <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-semibold z-30 border border-blue-400/50">

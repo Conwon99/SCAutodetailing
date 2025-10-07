@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Car, Sparkles, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServicesGrid = () => {
   const services = [
@@ -7,43 +8,50 @@ const ServicesGrid = () => {
       title: "Paint Decontamination",
       description: "Remove embedded contaminants and restore paint surface clarity",
       icon: Car,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/paint-decontamination"
     },
     {
       title: "Ceramic Coatings", 
       description: "Long-lasting protection for your vehicle's paint and surfaces",
       icon: Sparkles,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/ceramic-coating"
     },
     {
       title: "Paint Correction",
       description: "Remove scratches, swirls, and imperfections from paint surface",
       icon: Shield,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/paint-correction"
     },
     {
       title: "Decal Removal",
       description: "Professional removal of stickers, decals, and adhesive residues",
       icon: Shield,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/decal-removal"
     },
     {
       title: "Full Valets/Mini Valets",
       description: "Comprehensive or quick cleaning services to suit your needs",
       icon: Sparkles,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/car-valeting"
     },
     {
       title: "Deep Cleans",
       description: "Intensive cleaning for heavily soiled or neglected vehicles",
       icon: Shield,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/deep-clean"
     },
     {
       title: "Maintenance Washes",
       description: "Regular maintenance to keep your vehicle looking its best",
       icon: Car,
-      color: "grass-green"
+      color: "grass-green",
+      link: "/maintenance-wash"
     }
   ];
 
@@ -84,14 +92,25 @@ const ServicesGrid = () => {
                   </p>
                 </div>
 
-                {/* CTA Button */}
-                <Button 
-                  onClick={handleQuoteClick}
-                  className={`w-full bg-[hsl(var(--${service.color}))] hover:bg-[hsl(var(--${service.color}))] hover:opacity-90 text-primary-foreground font-semibold rounded-full group/button mt-auto`}
-                >
-                  Get Free Quote
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
-                </Button>
+                {/* CTA Buttons */}
+                <div className="space-y-3 mt-auto">
+                  <Link to={service.link}>
+                    <Button 
+                      variant="outline"
+                      className="w-full border-2 font-semibold rounded-full group/button"
+                    >
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Button 
+                    onClick={handleQuoteClick}
+                    className={`w-full bg-[hsl(var(--${service.color}))] hover:bg-[hsl(var(--${service.color}))] hover:opacity-90 text-primary-foreground font-semibold rounded-full group/button`}
+                  >
+                    Get Free Quote
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
               </div>
             </div>
           ))}

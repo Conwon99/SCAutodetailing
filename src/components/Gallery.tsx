@@ -111,6 +111,7 @@ const Gallery = () => {
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
               </div>
@@ -158,6 +159,7 @@ const Gallery = () => {
                 src={galleryImages[selectedImage].src}
                 alt={galleryImages[selectedImage].alt}
                 className="max-w-full max-h-full object-contain rounded-lg"
+                loading="lazy"
               />
             </div>
           </div>
